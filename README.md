@@ -41,21 +41,44 @@ give you guidance as to which tests failed.  (You can check the [RSpec
 documentation](http://rspec.info) to see how the `.rspec` file can be
 used to customize the output format.)
 
-If you are working in Codio, you are ready to move on to the next part. If you are working on a local computer, proceed with the following steps.
+Developing Your Assignment
+--------------------------
 
-| Local computer setup |
-|-----|
-Ensure that Ruby 2.6.6 is installed.
+There are four supported ways to work on this assignment; pick one and see
+[DEVELOPING.md](DEVELOPING.md) for detailed setup instructions:
 
-To ensure you have the rspec gem installed you need bundler and can then
-run bundle install like so:
-```sh
-$ gem install bundler
-$ cd assignment
-$ bundle
-```
-When the above completes successfully you'll have RSpec installed and can
-run `rspec` from the command line to test your code.
+1. **Local development.** Install the Ruby version listed in `.ruby-version`
+   (via rvm, rbenv, or asdf), then install the gems:
+
+   ```sh
+   $ gem install bundler
+   $ bundle install
+   ```
+
+   You can then run `bundle exec rspec` (or `bash run_specs.sh` for an
+   interactive menu) to test your code.
+
+2. **Local development with Docker.** No Ruby install needed — build the
+   provided `Dockerfile` and run the interactive test menu in a container
+   (mounting your working copy so your edits are picked up without a rebuild):
+
+   ```sh
+   $ docker build -t hw-ruby-intro .
+   $ docker run -it --rm -v "$(pwd)":/app hw-ruby-intro
+   ```
+
+3. **Codio.** If your course uses Codio, open the assignment from your Codio
+   course page — everything is preinstalled, and you are ready to move on to
+   the next part.
+
+4. **GitHub Codespaces.** From your copy of the repo on GitHub, choose
+   **Code → Codespaces → Create codespace** to get a browser-based VS Code
+   environment built from the same `Dockerfile`, with all dependencies
+   installed for you.
+
+> The Docker workflow for this assignment (the `Dockerfile` and the
+> `run_specs.sh` test-runner menu) is adapted from the
+> [NYU CSE Software Engineering version of hw-ruby-intro](https://github.com/NYU-CSE-Software-Engineering/hw-ruby-intro).
 
 # 1. Arrays, Hashes, and Enumerables
 
