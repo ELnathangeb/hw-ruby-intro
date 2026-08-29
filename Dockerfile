@@ -6,7 +6,9 @@
 #
 # Adapted from the NYU CSE Software Engineering version of this assignment:
 # https://github.com/NYU-CSE-Software-Engineering/hw-ruby-intro
-FROM ruby:3.3.8
+# The assignment needs Ruby >= 3.3.8 (see Gemfile); track the latest 3.3.x
+# patch release rather than freezing on one.
+FROM ruby:3.3
 
 RUN gem install bundler
 
