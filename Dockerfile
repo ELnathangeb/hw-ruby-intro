@@ -1,8 +1,14 @@
 # Docker image for CHIP 2.5 (Ruby Intro).
 #
 # Builds an environment with the Ruby version and gems the assignment needs,
-# and defaults to the interactive RSpec runner menu. Also used as the base for
-# GitHub Codespaces via .devcontainer/devcontainer.json.
+# and defaults to the interactive RSpec runner menu. GitHub Codespaces and the
+# VS Code Dev Containers extension build this same file, via
+# .devcontainer/devcontainer.json -- there is no separate dev image.
+#
+# It lives here in solutions/ because that is what build_starter_code.json
+# copies to the root of the generated starter repo, which is the build context
+# the COPY paths below are relative to. build_codio.json excepts it, so it does
+# not reach the Codio workspace.
 #
 # Adapted from the NYU CSE Software Engineering version of this assignment:
 # https://github.com/NYU-CSE-Software-Engineering/hw-ruby-intro
